@@ -1,0 +1,45 @@
+{% extends "weather/layout.html" %} {% block body %} {% if message %}
+<div>{{ message }}</div>
+{% endif %}
+
+<div
+  class="tab-content d-flex justify-content-center flex-column align-items-center mt-5"
+>
+  <h2>Login</h2>
+  <div
+    class="w-50"
+    id="pills-login"
+    role="tabpanel"
+    aria-labelledby="tab-login"
+  >
+    <form action="{% url 'login' %}" method="post">
+      {% csrf_token %}
+
+      <div class="form-outline mb-4">
+        <input
+          name="username"
+          type="text"
+          id="loginName"
+          class="form-control"
+        />
+        <label class="form-label" for="loginName">Email or username</label>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input
+          name="password"
+          type="password"
+          id="loginPassword"
+          class="form-control"
+        />
+        <label class="form-label" for="loginPassword">Password</label>
+      </div>
+      <input class="btn btn-primary" type="submit" value="Login" />
+    </form>
+
+    Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+  </div>
+</div>
+
+{% endblock %}

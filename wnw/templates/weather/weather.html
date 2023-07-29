@@ -1,0 +1,137 @@
+{% extends "weather/layout.html" %} {% load static %} {% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" class="home-link">W&W</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a
+            class="nav-link cursor-pointer"
+            aria-current="page"
+            id="home"
+            href="#"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link cursor-pointer" id="plans" href="#">My Plans</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link cursor-pointer"
+            href="{% url 'logout' %}"
+            tabindex="-1"
+            aria-disabled="true"
+            >Logout</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="home-container">
+  <form id="form" style="margin-top: 4rem">
+    <fieldset>
+      <legend>Where and when ?</legend>
+      <div class="mb-3">
+        <label for="city" class="form-label">Where</label>
+        <input
+          type="text"
+          id="city"
+          class="form-control"
+          placeholder="City"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="date" class="form-label">When</label>
+        <input type="date" required id="date" class="form-control" />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Add trip</button>
+    </fieldset>
+  </form>
+  {% comment %}
+  <div id="weather-display" class="mt-5 container-fluid row gap-5"></div>
+  {% endcomment %}
+</div>
+
+<div id="plans-container">
+  <h3 class="mt-2">Visited</h3>
+  <div id="visited" class="mt-2 container-fluid row gap-5"></div>
+
+  <h3 class="mt-5">Un-visited</h3>
+  <div id="unvisited" class="mt-2 container-fluid row gap-5"></div>
+</div>
+
+<div id="plan-editor-container">
+  <div id="update-card-container">
+    <div id="plan-to-be-edit" class="mt-2 d-flex justify-content-center"></div>
+
+    <div class="d-flex flex-row justify-content-center mt-3">
+      <form id="delete-plan" style="width: 5rem; margin-right: 0.5rem">
+        <button type="submit" class="btn btn-danger w-100">
+          <i class="fas fa-trash"></i>
+        </button>
+      </form>
+      <form id="update-plan" class="align-middle" style="width: 15rem">
+        <input
+          id="update-date"
+          type="date"
+          required
+          style="width: 10rem; display: inline; height: 38px"
+        />
+        <button
+          type="submit"
+          class="btn btn-primary align-top"
+          style="width: 4.5rem"
+        >
+          <i class="fas fa-edit"></i>
+        </button>
+      </form>
+    </div>
+    <div
+      style="width: 100%; font-family: Consolas, monaco, monospace"
+      class="text-center mt-4"
+      id="status"
+    ></div>
+    <hr />
+    <form id="notes-form">
+      <div class="mb-3">
+        <label
+          for="notes"
+          class="form-label"
+          style="font-family: Consolas, monaco, monospace; font-size: 2rem"
+          >Take some notes</label
+        >
+        <textarea
+          spellcheck="false"
+          style="background-color: lightgray"
+          class="form-control"
+          id="notes"
+          rows="8"
+        ></textarea>
+      </div>
+      <div class="d-flex flex-row-reverse">
+        <button type="submit" class="btn btn-success align-self-end">
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %} {% block script %}
+<script src="{% static 'weather/weather.js' %}"></script>
+{% endblock %}
