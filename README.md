@@ -34,6 +34,6 @@ Here are some APIs that I wrote to serve this project
 | GET    | /trip/<int:id>               | Get a specific trip with specific id to display on the </br> detail page| 
 | PUT    | /trip/update-notes/<int:id>  | Update notes for the trip which id is id                | 
 
-
+And ofcourse. My application is mobile-responsive
 
 
