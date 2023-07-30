@@ -21,7 +21,7 @@ This project is entirely different from Project Commerce and Project Network. It
 
 ### Comlexity
 
-The first complexity is to figure out how to effectively and simply manage journeys so that users do not feel confused when using the application. In addition, it is necessary to find a way to make the interface intuitive and user-friendly, ensuring that it works well both on computers and mobile devices.
+The first complexity is to figure out how to effectively and simply manage trips so that users do not feel confused when using the application. In addition, it is necessary to find a way to make the interface intuitive and user-friendly, ensuring that it works well both on computers and mobile devices.
 
 Furthermore, one of the biggest concerns when planning a trip is the weather. So, I want the program to integrate the weather of the locations on the interface. Therefore, I have researched the existing APIs and integrated them into my program. The difficulty here lies in using an external API for integration.
 
