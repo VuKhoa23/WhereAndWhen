@@ -43,7 +43,7 @@ So, user can have everything they want for a trip manager using my application. 
 
 ## Features
 
-- Add a new trip: The user can add a new trip by input the city name, the country name (country name is optional) and finally a date.
+- Add a new trip: The user can add a new trip by input the city name, the country name and finally a date.
   - If the trip is exists (has same city and same date). The user will not be able to add that trip.
 - View all the trip: User can see all the trips (visited and unvisited).
 - View details of the trip: User can click on a trip to see the details of the trip.
