@@ -48,7 +48,7 @@ So, user can have everything they want for a trip manager using my application. 
 - View all the trip: User can see all the trips (visited and unvisited).
 - View details of the trip: User can click on a trip to see the details of the trip.
   - User can edit the date, add notes and delete a trip in this tab.
-  - If the user update a trip to a trip that already exists. The result will be the same like add a duplicate trip.
+  - If the user update a trip to a trip that already exists. The result will be the same like adding a duplicate trip.
 
 ## Files structure and what I did
 
