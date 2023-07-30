@@ -106,7 +106,7 @@ So, user can have everything they want for a trip manager using my application. 
 - Clone this repo to your local
 - Install all the packages in requirements.txt
 ```
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 - Make migrations using the command
 
