@@ -97,8 +97,8 @@ So, user can have everything they want for a trip manager using my application. 
  ┃ ┣ 📜views.py : all the views for my app \
  ┃ ┗ 📜**init**.py \
  ┣ 📜db.sqlite3 \
- ┣ 📜manage.py : default django project file
- ┣ 📜README.md : Read me file that the project requires
+ ┣ 📜manage.py : default django project file \
+ ┣ 📜README.md : Read me file that the project requires \
  ┗ 📜requirement.txt : All the packages and dependencies you need to run my app (only have a 'requests' package for fetching exteral API)
 
 ## How to run my application
