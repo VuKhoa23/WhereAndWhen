@@ -25,3 +25,15 @@ And I want my application to respond quickly to user interactions, so I have imp
 And because this is an application that extensively utilizes dates, I have to handle various date-related cases, such as calculating the number of days until a trip, determining the number of days since a trip was taken, and more.
 
 Here are some APIs that I wrote to serve this project
+
+| METHOD | URL                          | Result                                                  | 
+| ------ | ---------------------------- | ------------------------------------------------------- |
+| POST   | /trip                        | Add new trip. If the trip with <br/> specific date and city name exists, it return fail| 
+| DELETE | /trip                        | Delete the trip                                         | 
+| GET    | /trip/get-all                | Get all the trips of the user who is requesting         | 
+| GET    | /trip/<int:id>               | Get a specific trip with specific id to display on the </br> detail page| 
+| PUT    | /trip/update-notes/<int:id>  | Update notes for the trip which id is id                | 
+
+
+
+
