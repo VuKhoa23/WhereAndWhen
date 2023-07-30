@@ -34,7 +34,7 @@ For this project, I created two models: User and Trip. Implement RESTful APIs wi
 | GET    | /trip/<int:id>               | Get a specific trip with specific id to display on the </br> detail page| 
 | PUT    | /trip/update-notes/<int:id>  | Update notes for the trip which id is id                | 
 
-And ofcourse. My application is mobile-responsive
+So, user can have everything they want for a trip manager using my application. And, ofcourse, its mobile-responsive
 
 ## Files structure and what I did
 📦WhereAndWhen \
