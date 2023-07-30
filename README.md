@@ -103,33 +103,33 @@ So, user can have everything they want for a trip manager using my application. 
 
 ## How to run my application
 
-- 1. Clone this repo to your local
-- 2. Install all the packages in requirements.txt
+- Clone this repo to your local
+- Install all the packages in requirements.txt
 ```
 pip3 install -r requirements.txt
 ```
-- 3. Make migrations using the command
+- Make migrations using the command
 
 ```
 python manage.py makemigrations
 ```
 
-- 4. Now migrate
+- Now migrate
 
 ```
 python manage.py migrate
 ```
 
-- 5. Start the server
+- Start the server
 
 ```
 python manage.py runserver
 ```
 
-- 6. Now you can create a super user using
+- Now you can create a super user using
 
 ```
 python manage.py createsuperuser
 ```
 
-- 7. Or just simply register and the program will automatically log you in
+- Or just simply register and the program will automatically log you in
