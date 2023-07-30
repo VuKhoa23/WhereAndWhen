@@ -14,7 +14,7 @@ Let's get started with WhereAndWhen!
 
 ## Distinctiveness and Complexity
 ### Distinctiveness
-This project is entirely different from Project Commerce and Project Network. It is an application designed to facilitate and manage journeys in an easy and convenient way. All you need to provide the program with is "Where And When," and it will organize and store your itinerary with a user-friendly interface.
+This project is entirely different from Project Commerce and Project Network. It is an application designed to facilitate and manage journeys in an easy and convenient way. All you need to provide the program "Where And When", and it will organize and store your itinerary with a user-friendly interface.
 ### Comlexity
 The first complexity is to figure out how to effectively and simply manage journeys so that users do not feel confused when using the application. In addition, it is necessary to find a way to make the interface intuitive and user-friendly, ensuring that it works well both on computers and mobile devices.
 
