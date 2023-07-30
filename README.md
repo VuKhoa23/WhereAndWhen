@@ -3,7 +3,7 @@
 - [CS50W Final Project - WhereAndWhen](#cs50w-final-project---WhereAndWhen)
   - [Overview](#overview)
   - [Distinctiveness and Complexity](#distinctiveness-and-complexity)
-  - [File structure description](#files-structure-description)
+  - [File structure description](#files-structure-and-what-i-did)
   - [How to run the application](#how-to-run-the-application)
   - [Features I would like to improve/add](#todo-list)
 
@@ -24,7 +24,7 @@ And I want my application to respond quickly to user interactions, so I have imp
 
 And because this is an application that extensively utilizes dates, I have to handle various date-related cases, such as calculating the number of days until a trip, determining the number of days since a trip was taken, and more.
 
-Here are some APIs that I wrote to serve this project
+For this project, I created two models: User and Trip. Implement RESTful APIs with Django REST Framework
 
 | METHOD | URL                          | Result                                                  | 
 | ------ | ---------------------------- | ------------------------------------------------------- |
@@ -36,4 +36,53 @@ Here are some APIs that I wrote to serve this project
 
 And ofcourse. My application is mobile-responsive
 
+## Files structure and what I did
+📦WhereAndWhen \
+ ┣ 📂.git \
+ ┣ 📂WhereAndWhen : base \
+ ┃ ┣ 📂__pycache__ \
+ ┃ ┃ ┣ 📜settings.cpython-311.pyc : default django project file \
+ ┃ ┃ ┣ 📜urls.cpython-311.pyc : default django project file \
+ ┃ ┃ ┣ 📜wsgi.cpython-311.pyc: default django project file \
+ ┃ ┃ ┗ 📜__init__.cpython-311.pyc : default django project file \
+ ┃ ┣ 📜asgi.py : default django project file \
+ ┃ ┣ 📜settings.py : added auth_user_model as wnw.User and date_input)format as '%Y-%m-%d' and installed app \
+ ┃ ┣ 📜urls.py : include all path of my main app 'wnw' with include function \
+ ┃ ┣ 📜wsgi.py : default django project file \
+ ┃ ┗ 📜__init__.py : default django project file \
+ ┣ 📂wnw : main app \
+ ┃ ┣ 📂migrations \
+ ┃ ┃ ┣ 📂__pycache__ \
+ ┃ ┃ ┃ ┣ 📜0001_initial.cpython-311.pyc : default django project file \
+ ┃ ┃ ┃ ┗ 📜__init__.cpython-311.pyc : default django project file \
+ ┃ ┃ ┣ 📜0001_initial.py : default django project file \
+ ┃ ┃ ┗ 📜__init__.py : default django project file \
+ ┃ ┣ 📂static \
+ ┃ ┃ ┗ 📂weather \
+ ┃ ┃ ┃ ┣ 📜weather.css : styling my app, but nothing much because I mainly use inline styling \
+ ┃ ┃ ┃ ┗ 📜weather.js : JS to handle single page structure by calling the RESTful APIs that I created \
+ ┃ ┣ 📂templates \
+ ┃ ┃ ┗ 📂weather \
+ ┃ ┃ ┃ ┣ 📜layout.html : layout for my app \
+ ┃ ┃ ┃ ┣ 📜login.html  : displaying login screen if user is not authenticated \
+ ┃ ┃ ┃ ┣ 📜register.html : displaying register screen, if user successfully create a new acount, the user will be redirect to main page \
+ ┃ ┃ ┃ ┗ 📜weather.html : main page that including all of the feature in my app, including: Add new trips, See all visited/unvisited trips, See details of a trip and edit/delete it \
+ ┃ ┣ 📂__pycache__ \
+ ┃ ┃ ┣ 📜admin.cpython-311.pyc : default django project file \
+ ┃ ┃ ┣ 📜apps.cpython-311.pyc : default django project file <br/>
+ ┃ ┃ ┣ 📜models.cpython-311.pyc : default django project file \
+ ┃ ┃ ┣ 📜urls.cpython-311.pyc : default django project file \
+ ┃ ┃ ┣ 📜views.cpython-311.pyc : default django project file \
+ ┃ ┃ ┗ 📜__init__.cpython-311.pyc : default django project file \
+ ┃ ┣ 📜admin.py \
+ ┃ ┣ 📜apps.py \
+ ┃ ┣ 📜models.py \
+ ┃ ┣ 📜tests.py \
+ ┃ ┣ 📜urls.py \
+ ┃ ┣ 📜views.py \
+ ┃ ┗ 📜__init__.py \
+ ┣ 📜db.sqlite3 \
+ ┣ 📜manage.py  
+ ┣ 📜README.md  
+ ┗ 📜requirement.txt  
 
