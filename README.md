@@ -61,7 +61,7 @@ So, user can have everything they want for a trip manager using my application. 
  ┃ ┃ ┣ 📜wsgi.cpython-311.pyc: default django project file \
  ┃ ┃ ┗ 📜**init**.cpython-311.pyc : default django project file \
  ┃ ┣ 📜asgi.py : default django project file \
- ┃ ┣ 📜settings.py : added auth_user_model as wnw.User and date_input)format as '%Y-%m-%d' and installed app \
+ ┃ ┣ 📜settings.py : added auth_user_model as 'wnw.User' and date_input_format as '%Y-%m-%d' and add my app to installed app \
  ┃ ┣ 📜urls.py : include all path of my main app 'wnw' with include function \
  ┃ ┣ 📜wsgi.py : default django project file \
  ┃ ┗ 📜**init**.py : default django project file \
