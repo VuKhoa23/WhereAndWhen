@@ -254,6 +254,7 @@ document.addEventListener("DOMContentLoaded", function () {
   formElement.addEventListener("submit", add_trip);
 
   document.querySelector("#home").addEventListener("click", load_home);
+  document.querySelector("#brand").addEventListener("click", load_home);
 
   document.querySelector("#plans").addEventListener("click", load_plans);
 

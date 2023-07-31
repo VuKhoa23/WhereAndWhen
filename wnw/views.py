@@ -15,18 +15,21 @@ from datetime import datetime, date
 from .models import User, Trip
 
 key = '5527b27344a4eddda6e28fcc171f2948'
+
+
 def index(request):
-     # Authenticated users can use the app
+    # Authenticated users can use the app
     if request.user.is_authenticated:
-        return render(request, "weather/weather.html")
+        return render(request, "trip/trip.html")
 
     # Everyone else is prompted to sign in
     else:
         return HttpResponseRedirect(reverse("login"))
-    
+
+
 @csrf_exempt
 @login_required
-def weather(request):
+def trip(request):
     if request.method == "POST":
         body = json.loads(request.body)
         city = body['city']
@@ -74,12 +77,14 @@ def weather(request):
         else:
             is_visited = True
 
-        trip = Trip(destination=data['name'], date=submit_day, user=request.user, is_visited=is_visited)
+        trip = Trip(destination=data['name'], date=submit_day,
+                    user=request.user, is_visited=is_visited)
         trip.save()
         print(result)
         return JsonResponse({
             'message': ''
         })
+
 
 @csrf_exempt
 @login_required
@@ -89,34 +94,34 @@ def get_trip(request, id):
         update_visit_status(user)
         trip = Trip.objects.get(id=id)
         url = f"https://api.openweathermap.org/data/2.5/weather?q={trip.destination}&appid={key}"
-        data = requests.get(url).json() 
+        data = requests.get(url).json()
 
         current_day = date.today()
         delta = trip.date - current_day
         delta = delta.days
         result = {
-                'id': trip.id,
-                'city': data['name'],
-                'temp': math.floor(data['main']['temp'] - 273.15),
-                'humidity': data['main']['humidity'],
-                'windspeed': math.floor(data['wind']['speed'] * 3.6),
-                'des': data['weather'][0]['description'].capitalize(),
-                'img': data['weather'][0]['icon'],
-                'feel': math.floor(data['main']['feels_like'] - 273.15),
-                'date': trip.date,
-                'delta':delta,
-                'notes': trip.notes,
-            }
+            'id': trip.id,
+            'city': data['name'],
+            'temp': math.floor(data['main']['temp'] - 273.15),
+            'humidity': data['main']['humidity'],
+            'windspeed': math.floor(data['wind']['speed'] * 3.6),
+            'des': data['weather'][0]['description'].capitalize(),
+            'img': data['weather'][0]['icon'],
+            'feel': math.floor(data['main']['feels_like'] - 273.15),
+            'date': trip.date,
+            'delta': delta,
+            'notes': trip.notes,
+        }
         return JsonResponse({
-                'data': result
-            })
-            
+            'data': result
+        })
+
     elif request.method == 'DELETE':
         trip = Trip.objects.get(id=id)
         trip.delete()
         return JsonResponse({
-                'message': 'Deleted'
-            })
+            'message': 'Deleted'
+        })
     elif request.method == 'PUT':
         trip = Trip.objects.get(id=id)
         body = json.loads(request.body)
@@ -136,7 +141,7 @@ def get_trip(request, id):
 
         delta = submit_day - current_day
 
-        if(delta.days > 0):
+        if (delta.days > 0):
             trip.is_visited = False
         else:
             trip.is_visited = True
@@ -144,9 +149,10 @@ def get_trip(request, id):
         trip.date = body['date']
         trip.save()
         return JsonResponse({
-                'message': ''
-            })
-    
+            'message': ''
+        })
+
+
 def update_visit_status(user):
     trips = Trip.objects.filter(user=user)
     for trip in trips:
@@ -158,6 +164,7 @@ def update_visit_status(user):
         else:
             trip.is_visited = True
             trip.save()
+
 
 @login_required
 def get_trips(request):
@@ -183,7 +190,6 @@ def get_trips(request):
         }
         data_reponse_visited.append(result)
 
-    
     trips = Trip.objects.filter(user=user, is_visited=False)
     trips = trips.order_by("date").all()
     data_reponse_unvisited = []
@@ -208,6 +214,7 @@ def get_trips(request):
         'data_visited': data_reponse_visited,
         'data_unvisited': data_reponse_unvisited
     })
+
 
 @csrf_exempt
 @login_required
@@ -236,11 +243,11 @@ def login_view(request):
             login(request, user)
             return HttpResponseRedirect(reverse("index"))
         else:
-            return render(request, "weather/login.html", {
+            return render(request, "trip/login.html", {
                 "message": "Invalid username and/or password."
             })
     else:
-        return render(request, "weather/login.html")
+        return render(request, "trip/login.html")
 
 
 def logout_view(request):
@@ -256,7 +263,7 @@ def register(request):
         password = request.POST["password"]
         confirmation = request.POST["confirmation"]
         if password != confirmation:
-            return render(request, "weather/register.html", {
+            return render(request, "trip/register.html", {
                 "message": "Passwords must match."
             })
 
@@ -266,14 +273,10 @@ def register(request):
             user.save()
         except IntegrityError as e:
             print(e)
-            return render(request, "weather/register.html", {
+            return render(request, "trip/register.html", {
                 "message": "Username already taken."
             })
         login(request, user)
         return HttpResponseRedirect(reverse("index"))
     else:
-        return render(request, "weather/register.html")
-    
-
-
-
+        return render(request, "trip/register.html")
