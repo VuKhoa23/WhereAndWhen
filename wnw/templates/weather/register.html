@@ -1,40 +1,65 @@
 {% extends "weather/layout.html" %} {% block body %}
 
-<h2>Register</h2>
-
 {% if message %}
-<div>{{ message }}</div>
+<div class="alert alert-warning" role="alert" style="top: 5rem; width: 100%; text-align:center">
+  {{ message }}
+</div>
 {% endif %}
 
-<form action="{% url 'register' %}" method="post">
-  {% csrf_token %}
-  <div class="form-group">
-    <input
-      class="form-control"
-      type="text"
-      name="username"
-      placeholder="Username"
-    />
-  </div>
-  <div class="form-group">
-    <input
-      class="form-control"
-      type="password"
-      name="password"
-      placeholder="Password"
-    />
-  </div>
-  <div class="form-group">
-    <input
-      class="form-control"
-      type="password"
-      name="confirmation"
-      placeholder="Confirm Password"
-    />
-  </div>
-  <input class="btn btn-primary" type="submit" value="Register" />
-</form>
 
-Already have an account? <a href="{% url 'login' %}">Log In here.</a>
+
+
+<div class="tab-content d-flex justify-content-center flex-column align-items-center" style="margin-top: 10rem">
+  <h2>Register</h2>
+  <div
+    class="w-50"
+    id="pills-login"
+    role="tabpanel"
+    aria-labelledby="tab-login"
+  >
+    <form action="{% url 'register' %}" method="post">
+      {% csrf_token %}
+
+      <div class="form-outline mb-4">
+        <input
+          class="form-control"
+          type="text"
+          name="username"
+          placeholder="Username"
+          id="loginName"
+        />
+        <label class="form-label" for="loginName">Email or username</label>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input
+          class="form-control"
+          type="password"
+          name="password"
+          placeholder="Password"
+          id="loginPassword"
+        />
+        <label class="form-label" for="loginPassword">Password</label>
+      </div>
+
+      <div class="form-outline mb-4">
+        <input
+          class="form-control"
+          type="password"
+          name="confirmation"
+          placeholder="Confirm Password"
+          id="confirmationPassword" 
+        />
+        <label class="form-label" for="loginPassword">Password</label>
+      </div>
+
+      <div class="d-flex justify-content-center flex-column align-items-center">
+        <input class="btn btn-primary w-50" type="submit" value="Register" />
+        Already have an account? <a href="{% url 'login' %}">Log In here.</a>
+      </div>
+    </form>
+  </div>
+</div>
 
 {% endblock %}

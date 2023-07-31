@@ -51,13 +51,18 @@
           type="text"
           id="city"
           class="form-control"
-          placeholder="City"
+          placeholder="Citi's name"
           required
         />
       </div>
+
+      <select class="form-select" aria-label="Choose a country" id="countrySelect">
+        <option value="">Choose country's name (Optional)</option>
+      </select>
+
       <div class="mb-3">
         <label for="date" class="form-label">When</label>
-        <input type="date" required id="date" class="form-control" />
+        <input type="date" required id="date" class="form-control" placeholder="Citi's name" />
       </div>
 
       <button type="submit" class="btn btn-primary">Add trip</button>
@@ -132,6 +137,47 @@
     </form>
   </div>
 </div>
+
+{% comment %} modal {% endcomment %}
+<div id="myModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Notification</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        {% comment %} <p id="modalContent"></p> {% endcomment %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="hideModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="myConfirmModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Notification</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="confirm-modal-body">
+        {% comment %} <p id="modalContent"></p> {% endcomment %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="confirmBtn">Yes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancelBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %} {% block script %}
 <script src="{% static 'weather/weather.js' %}"></script>
 {% endblock %}

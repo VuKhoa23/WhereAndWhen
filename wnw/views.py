@@ -30,8 +30,14 @@ def weather(request):
     if request.method == "POST":
         body = json.loads(request.body)
         city = body['city']
+        country = body['country']
+        if country == "":
+            query = f"{city}"
+        else:
+            query = f"{city},{country.lower()}"
         submit_date = body['submit_date']
-        url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={key}"
+        url = f"https://api.openweathermap.org/data/2.5/weather?q={query}&appid={key}"
+        print(url)
         data = requests.get(url).json()
         if data['cod'] == '404':
             return JsonResponse({
@@ -118,6 +124,16 @@ def get_trip(request, id):
         submit_date = body['date']
         submit_day = datetime.strptime(submit_date, "%Y-%m-%d").date()
 
+        # check if the trip already exists
+        trips = Trip.objects.filter(user=request.user)
+        for tmp_trip in trips:
+            if (submit_day == tmp_trip.date) and (tmp_trip.destination == trip.destination):
+                print(tmp_trip.destination)
+                print(trip.destination)
+                return JsonResponse({
+                    'message': "Failed, this trip already exists"
+                })
+
         delta = submit_day - current_day
 
         if(delta.days > 0):
@@ -128,7 +144,7 @@ def get_trip(request, id):
         trip.date = body['date']
         trip.save()
         return JsonResponse({
-                'message': 'Deleted'
+                'message': ''
             })
     
 def update_visit_status(user):
@@ -251,7 +267,7 @@ def register(request):
         except IntegrityError as e:
             print(e)
             return render(request, "weather/register.html", {
-                "message": "username address already taken."
+                "message": "Username already taken."
             })
         login(request, user)
         return HttpResponseRedirect(reverse("index"))
