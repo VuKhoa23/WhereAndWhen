@@ -27,7 +27,7 @@ The first complexity is to figure out how to effectively and simply manage trips
 
 Furthermore, one of the biggest concerns when planning a trip is the weather. So, I want the program to integrate the weather of the locations on the interface. Therefore, I have researched the existing APIs and integrated them into my program. The difficulty here lies in using an external API for integration.
 
-And I want my application to respond quickly to user interactions, so I have implemented a single-page structure for my application. Therefore, I had to write my own RESTful API to serve the program. This was very struggle because dealing with a bunch of asynchronus function is not easy
+And I want my application to respond quickly to user interactions, so I have implemented a single-page structure for my application. Therefore, I had to write my own RESTful API to serve the program. This was very struggle because dealing with a bunch of asynchronus function is not easy.
 
 And because this is an application that extensively utilizes dates, I have to handle various date-related cases, such as calculating the number of days until a trip, determining the number of days since a trip was taken, and more.
 
