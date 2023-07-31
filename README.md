@@ -11,6 +11,8 @@
 
 Have you ever wanted to keep track of the places you have visited but lacked a tool to do so? With WhereAndWhen, you can save all your journeys and plan for upcoming trips. This app addresses users' real needs with a friendly and easy-to-use interface.
 
+Initially, I wanted to create this application to solely serve my own travel management needs since I am someone who enjoys traveling to different places. However, as I continued developing its features, I realized that this app could address the travel management needs of others as well.
+
 Let's get started with WhereAndWhen!
 
 ## Distinctiveness and Complexity
