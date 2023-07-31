@@ -412,9 +412,11 @@ async function edit_trip(id) {
   delta = trip["data"].delta;
   if (delta > 0) {
     statusLine.innerHTML = `${delta} days to go !!`;
-  } else {
+  } else if (delta < 0) {
     delta = -delta;
     statusLine.innerHTML = `Visited ${delta} days ago`;
+  } else {
+    statusLine.innerHTML = `Visiting today`;
   }
   statusSection.appendChild(statusLine);
 
@@ -423,17 +425,17 @@ async function edit_trip(id) {
     event.preventDefault();
     let check = await isConfirm("Are you sure you want to delete this trip?");
     if (check) {
-      delete_trip(trip["data"].id);
+      await delete_trip(trip["data"].id);
     }
   });
 
   updateForm = document.querySelector("#update-plan");
   updateForm.addEventListener("submit", async function (event) {
     event.preventDefault();
-    let check = await isConfirm("Are you sure you want to update this trip?");
+    event.stopPropagation();
+    const check = await isConfirm("Are you sure you want to update this trip?");
     if (check) {
-      date = document.querySelector("#update-date").value;
-      update_trip(trip["data"].id, date);
+      do_update();
     }
   });
 
@@ -447,6 +449,11 @@ async function edit_trip(id) {
 
   document.querySelector("#plans-container").style.display = "none";
   document.querySelector("#plan-editor-container").style.display = "block";
+}
+
+async function do_update() {
+  date = document.querySelector("#update-date").value;
+  await update_trip(trip["data"].id, date);
 }
 
 async function delete_trip(id) {
@@ -464,10 +471,7 @@ async function update_trip(id, date) {
     }),
   });
   result = await response.json();
-  console.log(result["message"]);
-  if (result["message"] !== "") {
-    showModal("Update failed. Trip already exists");
-  }
+
   date = document.querySelector("#update-date").value = "";
   edit_trip(id);
 }

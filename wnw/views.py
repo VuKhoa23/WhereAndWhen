@@ -135,6 +135,8 @@ def get_trip(request, id):
             if (submit_day == tmp_trip.date) and (tmp_trip.destination == trip.destination):
                 print(tmp_trip.destination)
                 print(trip.destination)
+                print(tmp_trip.date)
+                print(submit_day)
                 return JsonResponse({
                     'message': "Failed, this trip already exists"
                 })
