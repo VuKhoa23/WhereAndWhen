@@ -29,6 +29,10 @@ And I want my application to respond quickly to user interactions, so I have imp
 
 And because this is an application that extensively utilizes dates, I have to handle various date-related cases, such as calculating the number of days until a trip, determining the number of days since a trip was taken, and more.
 
+Because the external API only allows queries with two letters country code. So I have to generate all available country and their country codes into my program.
+
+To make the program more user-friendly, I avoid using the built-in alert() and confirm() functions. Instead, I construct custom methods using HTML Modals, creating a smooth user experience.
+
 For this project, I created two models: User and Trip. Implement RESTful APIs with Django REST Framework
 
 | METHOD | URL                         | Result                                                                                  |
@@ -85,7 +89,7 @@ So, user can have everything they want for a trip manager using my application. 
  ┃ ┣ 📂**pycache** \
  ┃ ┃ ┣ 📜admin.cpython-311.pyc : default django project file \
  ┃ ┃ ┣ 📜apps.cpython-311.pyc : default django project file <br/>
- ┃ ┃ ┣ 📜models.cpython-311.pyc : default django project file \
+┃ ┃ ┣ 📜models.cpython-311.pyc : default django project file \
  ┃ ┃ ┣ 📜urls.cpython-311.pyc : default django project file \
  ┃ ┃ ┣ 📜views.cpython-311.pyc : default django project file \
  ┃ ┃ ┗ 📜**init**.cpython-311.pyc : default django project file \
@@ -105,9 +109,11 @@ So, user can have everything they want for a trip manager using my application. 
 
 - Clone this repo to your local
 - Install all the packages in requirements.txt
+
 ```
 pip install -r requirements.txt
 ```
+
 - Make migrations using the command
 
 ```
