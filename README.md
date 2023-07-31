@@ -79,15 +79,15 @@ So, user can have everything they want for a trip manager using my application. 
  ┃ ┃ ┣ 📜0001_initial.py : default django project file \
  ┃ ┃ ┗ 📜**init**.py : default django project file \
  ┃ ┣ 📂static \
- ┃ ┃ ┗ 📂weather \
- ┃ ┃ ┃ ┣ 📜weather.css : styling my app, but nothing much because I mainly use inline styling \
- ┃ ┃ ┃ ┗ 📜weather.js : JS to handle single page structure by calling the RESTful APIs that I created \
+ ┃ ┃ ┗ 📂trip \
+ ┃ ┃ ┃ ┣ 📜trip.css : styling my app, but nothing much because I mainly use inline styling \
+ ┃ ┃ ┃ ┗ 📜trip.js : JS to handle single page structure by calling the RESTful APIs that I created, this is the SOUL of the program \
  ┃ ┣ 📂templates \
- ┃ ┃ ┗ 📂weather \
+ ┃ ┃ ┗ 📂trip \
  ┃ ┃ ┃ ┣ 📜layout.html : layout for my app \
  ┃ ┃ ┃ ┣ 📜login.html : displaying login screen if user is not authenticated \
  ┃ ┃ ┃ ┣ 📜register.html : displaying register screen, if user successfully create a new acount, the user will be redirect to main page \
- ┃ ┃ ┃ ┗ 📜weather.html : main page that including all of the UI for the features in my app \
+ ┃ ┃ ┃ ┗ 📜trip.html : main page that including all of the UI for the features in my app \
  ┃ ┣ 📂**pycache** \
  ┃ ┃ ┣ 📜admin.cpython-311.pyc : default django project file \
  ┃ ┃ ┣ 📜apps.cpython-311.pyc : default django project file <br/>
@@ -100,7 +100,7 @@ So, user can have everything they want for a trip manager using my application. 
  ┃ ┣ 📜models.py : file that contains my two models: User and Trip \
  ┃ ┣ 📜tests.py : default django project file \
  ┃ ┣ 📜urls.py : here I will asign all the URLs and API routes \
- ┃ ┣ 📜views.py : all the views for my app \
+ ┃ ┣ 📜views.py : all the views for my app, here I handle all the request from the front-end \
  ┃ ┗ 📜**init**.py \
  ┣ 📜db.sqlite3 \
  ┣ 📜manage.py : default django project file \
