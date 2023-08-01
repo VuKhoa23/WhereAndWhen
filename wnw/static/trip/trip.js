@@ -421,23 +421,10 @@ async function edit_trip(id) {
   statusSection.appendChild(statusLine);
 
   deleteForm = document.querySelector("#delete-plan");
-  deleteForm.addEventListener("submit", async function (event) {
-    event.preventDefault();
-    let check = await isConfirm("Are you sure you want to delete this trip?");
-    if (check) {
-      await delete_trip(trip["data"].id);
-    }
-  });
+  deleteForm.addEventListener("submit", do_delete);
 
   updateForm = document.querySelector("#update-plan");
-  updateForm.addEventListener("submit", async function (event) {
-    event.preventDefault();
-    event.stopPropagation();
-    const check = await isConfirm("Are you sure you want to update this trip?");
-    if (check) {
-      do_update();
-    }
-  });
+  updateForm.addEventListener("submit", do_update);
 
   notesForm = document.querySelector("#notes-form");
   notesForm.addEventListener("submit", (event) => {
@@ -451,9 +438,22 @@ async function edit_trip(id) {
   document.querySelector("#plan-editor-container").style.display = "block";
 }
 
-async function do_update() {
-  date = document.querySelector("#update-date").value;
-  await update_trip(trip["data"].id, date);
+async function do_delete(event) {
+  event.preventDefault();
+  let check = await isConfirm("Are you sure you want to delete this trip?");
+  if (check) {
+    await delete_trip(trip["data"].id);
+  }
+}
+
+async function do_update(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  const check = await isConfirm("Are you sure you want to update this trip?");
+  if (check) {
+    date = document.querySelector("#update-date").value;
+    await update_trip(trip["data"].id, date);
+  }
 }
 
 async function delete_trip(id) {
@@ -471,7 +471,10 @@ async function update_trip(id, date) {
     }),
   });
   result = await response.json();
-
+  console.log(result);
+  if (result.message !== "") {
+    showModal("Update failed. Trip already exists");
+  }
   date = document.querySelector("#update-date").value = "";
   edit_trip(id);
 }
