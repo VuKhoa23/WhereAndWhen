@@ -55,6 +55,7 @@ So, user can have everything they want for a trip manager using my application. 
 - View details of the trip: User can click on a trip to see the details of the trip.
   - User can edit the date, add notes and delete a trip in this tab.
   - If the user update a trip to a trip that already exists. The result will be the same like adding a duplicate trip.
+- And every destination will be displayed with their real-time weather information
 
 ## Files structure and what I did
 
