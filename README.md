@@ -1,3 +1,6 @@
+## This is the application that I built for the final project of CS50w. I used JavaScript, Boostrap and Django
+### Screencast: https://www.youtube.com/watch?v=u6Rn7b067Q0
+
 # CS50W Final Project - WhereAndWhen
 
 - [CS50W Final Project - WhereAndWhen](#cs50w-final-project---WhereAndWhen)
