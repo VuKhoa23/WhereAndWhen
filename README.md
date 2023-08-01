@@ -46,6 +46,7 @@ For this project, I created two models: User and Trip. Implement RESTful APIs wi
 | DELETE | /trip                       | Delete the trip                                                                         |
 | GET    | /trip/get-all               | Get all the trips of the user who is requesting                                         |
 | GET    | /trip/<int:id>              | Get a specific trip with specific id to display on the </br> detail page                |
+| PUT    | /trip/<int:id>              | Update trip's date                                                                      |
 | PUT    | /trip/update-notes/<int:id> | Update notes for the trip which id is id                                                |
 
 So, user can have everything they want for a trip manager using my application. And, ofcourse, its mobile-responsive
